@@ -1,0 +1,37 @@
+<h1>Dispositivos</h1>
+
+<div ng-repeat="device in listDevices">
+	<h5>{{device.name}}</h5>
+	<div class="row">
+		<div class="col s2">
+			<i class="material-icons bigIcon">gps_not_fixed</i> 
+		</div>
+		<div class="col s7">
+			<div ng-if="device.type == 'simple'">
+				<div ng-if="device.state == true">
+					<strong>Encendido</strong>
+				</div>
+				<div ng-if="device.state == false">
+					<strong>Apagado</strong>
+				</div>			
+			</div>
+			<div ng-if="device.type == 'variable'">
+			<span>variable</span>
+			</div>
+			<div ng-if="device.type == 'color'">
+			<span>color</span>
+			</div>			
+		</div>		
+		<div class="col s3">
+			<div class="switch inline">
+			    <label>
+			      Off
+			      <input type="checkbox" ng-model="device.state" ng-change="turn($index)">
+			      <span class="lever"></span>
+			      On
+			    </label>
+			</div>
+		</div>
+	</div>
+</div>
+
